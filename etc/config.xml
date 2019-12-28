@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <payafterdelivery>
+                <active>1</active>
+                <model>Billie\Payment\Model\Payment\Payafterdelivery</model>
+                <order_status>pending</order_status>
+                <title>Pay after delivery</title>
+                <allowspecific>0</allowspecific>
+                <group>Offline</group>
+            </payafterdelivery>
+        </payment>
+    </default>
+</config>
