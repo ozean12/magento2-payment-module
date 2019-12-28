@@ -1,16 +1,16 @@
 {
-  "name": "magento/billie-paymentmethod",
+  "name": "magento/billie-payment-method",
   "description": "Billie Paymentmethod Pay After delivery",
   "require": {
     "php": ">=7.0.2",
-    "magento/module-sales": "100.0.*",
-    "magento/module-checkout": "100.0.*",
-    "magento/module-payment": "100.0.*",
-    "magento/framework": "100.0.*",
-    "magento/magento-composer-installer": "100.0.*"
+    "magento/module-sales": ">=100.0.*",
+    "magento/module-checkout": ">=100.0.*",
+    "magento/module-payment": ">=100.0.*",
+    "magento/framework": ">=100.0.*",
+    "magento/magento-composer-installer": "*"
   },
   "type": "magento2-component",
-  "version": "100.0.3",
+  "version": "0.3.0",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
