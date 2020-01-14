@@ -3,14 +3,14 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <payment>
-            <payafterdelivery>
+            <magento_billiePaymentMethod>
                 <active>1</active>
-                <model>Billie\Payment\Model\Payment\Payafterdelivery</model>
+                <model>Magento\BilliePaymentMethod\Payment\Model\Payment\Payafterdelivery</model>
                 <order_status>pending</order_status>
                 <title>Pay after delivery</title>
                 <allowspecific>0</allowspecific>
                 <group>Offline</group>
-            </payafterdelivery>
+            </magento_billiePaymentMethod>
         </payment>
     </default>
 </config>
