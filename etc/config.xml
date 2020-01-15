@@ -5,7 +5,7 @@
         <payment>
             <magento_billiePaymentMethod>
                 <active>1</active>
-                <model>Magento\BilliePaymentMethod\Payment\Model\Payment\Payafterdelivery</model>
+                <model>Magento\BilliePaymentMethod\Model\Payment\Payafterdelivery</model>
                 <order_status>pending</order_status>
                 <title>Pay after delivery</title>
                 <allowspecific>0</allowspecific>
