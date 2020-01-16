@@ -2,16 +2,15 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="payment">
-            <group id="magento_billiePaymentMethod" translate="label comment" type="text" sortOrder="10"
-                   showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Billie</label>
-                <comment>
-                    <![CDATA[Billie Description]]></comment>
-                <fieldset_css>complex billie-section</fieldset_css>
-                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
-                <group id="payafterdelivery" translate="label comment" type="text" sortOrder="50"
+<!--            <group id="billiepayment" translate="label comment" type="text" sortOrder="10"-->
+<!--                   showInDefault="1" showInWebsite="1" showInStore="1">-->
+<!--                <label>Billie</label>-->
+<!--                <comment>-->
+<!--                    <![CDATA[Billie Description]]></comment>-->
+<!--                <fieldset_css>complex billie-section</fieldset_css>-->
+                <group id="magento_billiePaymentMethod" translate="label comment" type="text" sortOrder="50"
                        showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Billie PayAfterDelivrey</label>
+                    <label>Billie PayAfterDelivery</label>
                     <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1"
                            showInWebsite="1" showInStore="0">
                         <label>Enabled</label>
@@ -53,7 +52,7 @@
                         <can_be_empty>1</can_be_empty>
                     </field>
                 </group>
-            </group>
+<!--            </group>-->
         </section>
     </system>
 </config>

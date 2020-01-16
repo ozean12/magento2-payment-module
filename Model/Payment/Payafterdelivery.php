@@ -9,7 +9,7 @@
 namespace Magento\BilliePaymentMethod\Model\Payment;
 class Payafterdelivery extends \Magento\Payment\Model\Method\Cc
 {
-    const CODE = 'classyllama_llamacoin';
+    const CODE = 'magento_billiePaymentMethod';
     protected $_code = self::CODE;
     protected $_canAuthorize = true;
     protected $_canCapture = true;
