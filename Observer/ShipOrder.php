@@ -7,10 +7,11 @@
  * Date: 19.01.20
  */
 
-namespace Magento\BilliePaymentMethod\Model\Observer;
+namespace Magento\BilliePaymentMethod\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use \Magento\BilliePaymentMethod\Helper\Data;
+use \Magento\Framework\Exception\LocalizedException;
 
 class ShipOrder implements ObserverInterface
 {
@@ -35,7 +36,7 @@ class ShipOrder implements ObserverInterface
 
         if (!$invoiceIds) {
 
-            Mage::throwException(__('You have to create a invoice first'));
+            throw new LocalizedException(__('You have to create a invoice first'));
 
         } else {
 
@@ -43,7 +44,7 @@ class ShipOrder implements ObserverInterface
 
                 $billieShipData = $this->helper->mapShipOrderData($order);
 
-                $client = Mage::Helper('billie_core/sdk')->clientCreate();
+                $client = $this->helper->clientCreate();
                 $billieResponse = $client->shipOrder($billieShipData);
 
 //                Mage::Helper('billie_core/log')->billieLog($order, $billieShipData, $billieResponse);
@@ -52,7 +53,7 @@ class ShipOrder implements ObserverInterface
 
             } catch (Exception $error) {
 
-                Mage::throwException($error->getMessage());
+                throw new LocalizedException(__($error->getMessage()));
 
             }
         }
