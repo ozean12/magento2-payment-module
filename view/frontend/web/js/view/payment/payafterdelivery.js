@@ -13,10 +13,10 @@ define([
             );
         } catch ( e){
 
-            console.log('test',e);
+            console.log('test 1',e);
         }
 
-        console.log('test1',rendererList.push);
+        console.log('test2');
         /** Add view logic here if needed */
         return Component.extend({});
     });
