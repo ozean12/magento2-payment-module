@@ -39,7 +39,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
             );
         $setup->getConnection()
             ->addColumn(
-                $setup->getTable($quoteTable),
+                $setup->getTable($orderTable),
                 'billie_reference_id',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
