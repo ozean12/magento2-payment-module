@@ -91,6 +91,19 @@ class Data extends AbstractHelper
 
     }
 
+    public function reduceAmount($order){
+
+        $command = new \Billie\Command\ReduceOrderAmount($order->getBillieReferenceId());
+        $newTotalAmount = $order->getData('base_total_invoiced') - $order->getData('base_total_offline_refunded') - $order->getData('base_total_online_refunded');
+        $newTaxAmount = $order->getData('base_tax_invoiced') - $order->getData('base_tax_refunded');
+        $command->invoiceNumber = $order->getInvoiceCollection()->getFirstItem()->getIncrementId();
+        $command->invoiceUrl = $this->getConfig(self::invoiceUrl,$this->getStoreId()).DS.$order->getIncrementId().'.pdf';
+        $command->amount = new \Billie\Model\Amount(($newTotalAmount-$newTaxAmount)*100, $order->getData('base_currency_code'), $newTaxAmount*100);
+
+        return $command;
+
+    }
+
     public function mapShipOrderData($order)
     {
         $command = new \Billie\Command\ShipOrder($order->getBillieReferenceId());
