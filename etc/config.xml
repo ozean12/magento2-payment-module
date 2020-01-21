@@ -10,6 +10,8 @@
                 <title>Pay after delivery</title>
                 <allowspecific>0</allowspecific>
                 <group>Offline</group>
+                <consumer_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <consumer_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
             </magento_billiePaymentMethod>
         </payment>
     </default>
