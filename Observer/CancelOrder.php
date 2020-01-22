@@ -40,8 +40,6 @@ class CancelOrder implements ObserverInterface
             return;
         }
 
-        $this->_storeManager->setCurrentStore($order->getStoreId());
-
          try {
 
             $client = $this->helper->clientCreate();

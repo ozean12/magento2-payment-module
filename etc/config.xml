@@ -7,9 +7,10 @@
                 <active>1</active>
                 <model>Magento\BilliePaymentMethod\Model\Payment\Payafterdelivery</model>
                 <order_status>pending</order_status>
-                <title>Pay after delivery</title>
+                <title>Payafterdelivery</title>
                 <allowspecific>0</allowspecific>
                 <group>Offline</group>
+                <can_use_internal>1</can_use_internal>
                 <consumer_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
                 <consumer_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
             </magento_billiePaymentMethod>

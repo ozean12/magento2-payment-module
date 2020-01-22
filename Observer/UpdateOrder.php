@@ -24,11 +24,12 @@ class UpdateOrder implements ObserverInterface
     protected $storeManager;
     protected $messageManager;
 
-    public function __construct(Data $helper, \Magento\Framework\Message\ManagerInterface $messageManager,\Magento\Store\Model\StoreManagerInterface $storeManager )
+    public function __construct(Data $helper, \Magento\Framework\Message\ManagerInterface $messageManager,\Magento\Store\Model\StoreManagerInterface $storeManager, \Psr\Log\LoggerInterface $logger )
     {
         $this->helper = $helper;
         $this->_messageManager = $messageManager;
         $this->_storeManager = $storeManager;
+        $this->logger = $logger;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
@@ -36,18 +37,12 @@ class UpdateOrder implements ObserverInterface
 
         $creditMemo = $observer->getEvent()->getCreditmemo();
         $order = $creditMemo->getOrder();
-
-        $order->setData('billie_reference_id','13703b10-e2a2-4d77-becc-7880d30c564b');
-
         $payment = $order->getPayment()->getMethodInstance();
 
-        /** @var \Magento\Sales\Model\Order $order */
 
         if ($payment->getCode() == self::paymentmethodCode) {
             return;
         }
-
-        $this->_storeManager->setCurrentStore($order->getStoreId());
 
          try {
 
@@ -58,6 +53,7 @@ class UpdateOrder implements ObserverInterface
                  $billieUpdateData = $this->helper->reduceAmount($order);
                  $billieResponse = $client->reduceOrderAmount($billieUpdateData);
 
+                 $this->logger->debug(print_r($billieResponse,true));
 //                 Mage::Helper('billie_core/log')->billieLog($order, $billieUpdateData, $billieResponse);
 
                  if ($billieResponse->state == 'complete') {
