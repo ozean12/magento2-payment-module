@@ -8,7 +8,7 @@ define([
             rendererList.push(
                 {
                     type: 'magento_billiePaymentMethod',
-                    component: 'Mgento_BilliePaymentMethod/js/view/payment/method-renderer/payafterdelivery'
+                    component: 'Magento_BilliePaymentMethod/js/view/payment/method-renderer/payafterdelivery'
                 }
             );
         } catch ( e){
